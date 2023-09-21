@@ -37,27 +37,51 @@ class DBStorage:
         all objects depending of the class name
         """
         classes = ("User", "State", "City", "Amenity", "Place", "Review")
-        session = self.__session
         dictionary = {}
 
         if cls is None:
             for item in classes:
-                query = session.query(item)
+                query = self.__session.query(item).all()
                 for obj in query.all():
                     key = f"{obj.__class__.__name}.{obj.id}"
                     dictionary[key] = obj
         else:
-            query = session.query(cls)
+            query = self.__session.query(cls).all()
             for obj in query.all():
                 key = f"{obj.__class__.__name}.{obj.id}"
                 dictionary[key] = obj
 
         return dictionary
 
+
+    # def all(self, cls=None):
+    #     '''query on the current db session all cls objects'''
+    #     classes = {
+    #         "User": User,
+    #         "State": State,
+    #         "City": City,
+    #         "Amenity": Amenity,
+    #         "Place": Place,
+    #         "Review": Review
+    #     }
+    #     dct = {}
+    #     if cls is None:
+    #         for c in classes.values():
+    #             objs = self.__session.query(c).all()
+    #             for obj in objs:
+    #                 key = obj.__class__.__name__ + '.' + obj.id
+    #                 dct[key] = obj
+    #     else:
+    #         objs = self.__session.query(cls).all()
+    #         for obj in objs:
+    #             key = obj.__class__.__name__ + '.' + obj.id
+    #             dct[key] = obj
+    #     return dct
+
+
     def new(self, obj):
         """add the object to the current database session"""
-        if obj:
-            self.__session.add(obj)
+        self.__session.add(obj)
 
     def save(self):
         """commit all changes of the current database session"""
@@ -80,3 +104,7 @@ class DBStorage:
         Session = scoped_session(session_factory)
 
         self.__session = Session()
+
+    def close(self):
+        """closese SQLAlchemy session"""
+        self.__session.close()

@@ -28,7 +28,6 @@ class HBNBCommand(cmd.Cmd):
     #            'Review': Review
     #           }
 
-
     def do_quit(self, line):
         """
         Command to exit the console
@@ -61,12 +60,12 @@ class HBNBCommand(cmd.Cmd):
             return
 
         Obj = eval(class_name)  # BaseModel
-        new_instance = Obj() # BaseModel()
+        new_instance = Obj()  # BaseModel()
 
         for key_value in parameters:
             key, value = key_value.split("=")
             if value.startswith('"') and value.endswith('"'):
-                value = value[1:-1].replace("_", " ") #.replace(r'\"', '"')
+                value = value[1:-1].replace("_", " ")  # replace(r'\"', '"')
             elif "." in value:
                 try:
                     value = float(value)

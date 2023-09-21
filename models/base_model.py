@@ -69,9 +69,9 @@ class BaseModel:
                 dict[k] = v
 
             dict[k] = v
-        
+
         if "_sa_instance_state" in dict.keys():
-            del dict["_sa_instance_state"] 
+            del dict["_sa_instance_state"]
 
         return dict
 

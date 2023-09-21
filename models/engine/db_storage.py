@@ -53,7 +53,6 @@ class DBStorage:
 
         return dictionary
 
-
     # def all(self, cls=None):
     #     '''query on the current db session all cls objects'''
     #     classes = {
@@ -77,7 +76,6 @@ class DBStorage:
     #             key = obj.__class__.__name__ + '.' + obj.id
     #             dct[key] = obj
     #     return dct
-
 
     def new(self, obj):
         """add the object to the current database session"""

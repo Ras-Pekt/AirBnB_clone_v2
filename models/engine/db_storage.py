@@ -83,13 +83,13 @@ class DBStorage:
         """
         add the object to the current database session
         """
-        self.__session.add(obj).to_dict()
+        self.__session.add(obj)
 
     def save(self):
         """
         commit all changes of the current database session
         """
-        self.__session.commit().to_dict()
+        self.__session.commit()
 
     def delete(self, obj=None):
         """

@@ -254,7 +254,7 @@ class HBNBCommand(cmd.Cmd):
             for k, v in str_dict.items():
                 print_list.append(str(v))
 
-        print(print_list) 
+        print(print_list)
 
     def help_all(self):
         """ Help information for the all command """

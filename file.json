@@ -1,0 +1,45 @@
+{
+  "State.91f2f75c-afc5-44eb-b3e7-f02891c0ec86": {
+    "id": "91f2f75c-afc5-44eb-b3e7-f02891c0ec86",
+    "created_at": "2023-09-22T20:53:20.398012",
+    "updated_at": "2023-09-22T20:53:20.398025",
+    "name": "Nevada",
+    "__class__": "State"
+  },
+  "State.d6d7a371-d1ac-41b5-b9d8-e6551211adf1": {
+    "id": "d6d7a371-d1ac-41b5-b9d8-e6551211adf1",
+    "created_at": "2023-09-22T20:53:52.585808",
+    "updated_at": "2023-09-22T20:53:52.585895",
+    "name": "California",
+    "__class__": "State"
+  },
+  "State.43bd9d47-ea4a-4e90-bd35-c232e83a1756": {
+    "id": "43bd9d47-ea4a-4e90-bd35-c232e83a1756",
+    "created_at": "2023-09-22T20:53:52.587277",
+    "updated_at": "2023-09-22T20:53:52.587423",
+    "name": "Arizona",
+    "__class__": "State"
+  },
+  "Place.43b0c307-152c-4023-bf59-06ef47072e6b": {
+    "id": "43b0c307-152c-4023-bf59-06ef47072e6b",
+    "created_at": "2023-09-22T20:53:52.588868",
+    "updated_at": "2023-09-22T20:53:52.588968",
+    "city_id": "0001",
+    "user_id": "0001",
+    "name": "My little house",
+    "number_rooms": 4,
+    "number_bathrooms": 2,
+    "max_guest": 10,
+    "price_by_night": 300,
+    "latitude": 37.773972,
+    "longitude": -122.431297,
+    "__class__": "Place"
+  },
+  "State.a19cfeb5-dd90-422d-a0dc-daa1797f3524": {
+    "id": "a19cfeb5-dd90-422d-a0dc-daa1797f3524",
+    "created_at": "2023-09-22T20:56:13.453629",
+    "updated_at": "2023-09-22T20:56:13.453651",
+    "name": "Nevada",
+    "__class__": "State"
+  }
+}

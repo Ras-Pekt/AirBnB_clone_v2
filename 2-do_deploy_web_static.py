@@ -23,9 +23,9 @@ def do_pack():
         mkdir("versions")
 
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    archive_path = f"versions/web_static_{timestamp}.tgz"
+    archive_path = "versions/web_static_{}.tgz".format(timestamp)
 
-    result = local(f"tar -cvzf {archive_path} web_static")
+    result = local("tar -cvzf {} web_static".format(archive_path))
 
     if result.succeeded:
         return archive_path
@@ -51,24 +51,24 @@ def do_deploy(archive_path):
         archive_name = archive_filename.split(".")[0]
 
         # path=/data/web_static/releasses/web_static_20170315003959
-        path = f"/data/web_static/releases/{archive_name}"
+        path = "/data/web_static/releases/{}".format(archive_name)
 
         # make this dir(and parent_dir)
         # /data/web_static/releasses/web_static_20170315003959
-        run(f"mkdir -p {path}")
+        run("mkdir -p {}".format(path))
 
         # extract /tmp/versions/web_static_20170315003959.tgz
         # to /data/web_static/releasses/web_static_20170315003959
-        run(f"tar -xzf /tmp/{archive_filename} -C {path}")
+        run("tar -xzf /tmp/{} -C {}".format(archive_filename, path))
 
         # delete /data/web_static/releasses/web_static_20170315003959
-        run(f"rm /tmp/{archive_filename}")
+        run("rm /tmp/{archive_filename}".format(archive_filename))
 
         # remove symlink
         run("rm -rf /data/web_static/current")
 
         # create sysnlink
-        run(f"ln -s {path} /data/web_static/current")
+        run("ln -s {path} /data/web_static/current".format(path))
 
         return True
 

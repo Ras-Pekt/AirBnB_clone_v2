@@ -41,34 +41,29 @@ def do_deploy(archive_path):
         return False
 
     try:
-        # /tmp/versions/web_static_20170315003959.tgz
-        put(archive_path, '/tmp/')
-
-        # archive_filename=web_static_20170315003959.tgz
         archive_filename = archive_path.split("/")[-1]
 
-        # archive_name=web_static_20170315003959
+        temp_path = "/tmp/{}".format(archive_filename)
+
         archive_name = archive_filename.split(".")[0]
 
-        # path=/data/web_static/releasses/web_static_20170315003959
-        path = "/data/web_static/releases/{}".format(archive_name)
+        full_path = "/data/web_static/releases/{}/".format(archive_name)
 
-        # make this dir(and parent_dir)
-        # /data/web_static/releasses/web_static_20170315003959
-        run("mkdir -p {}".format(path))
+        put(archive_path, temp_path)
 
-        # extract /tmp/versions/web_static_20170315003959.tgz
-        # to /data/web_static/releasses/web_static_20170315003959
-        run("tar -xzf /tmp/{} -C {}".format(archive_filename, path))
+        run("mkdir -p {}".format(full_path))
 
-        # delete /data/web_static/releasses/web_static_20170315003959
-        run("rm /tmp/{}".format(archive_filename))
+        run("tar -xzf /tmp/{} -C {}".format(temp_path, full_path))
 
-        # remove symlink
+        run("rm /tmp/{}".format(temp_path))
+
+        run("mv -f {}web_static/* {}".format(full_path, full_path))
+
+        run("rm -rf {}web_static".format(full_path))
+
         run("rm -rf /data/web_static/current")
 
-        # create sysnlink
-        run("ln -s {} /data/web_static/current".format(path))
+        run("ln -s {} /data/web_static/current".format(full_path))
 
         return True
 

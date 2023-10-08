@@ -19,9 +19,9 @@ def do_pack():
         mkdir("versions")
 
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    archive_path = f"versions/web_static_{timestamp}.tgz"
+    archive_path = "versions/web_static_{}.tgz".format(timestamp)
 
-    result = local(f"tar -cvzf {archive_path} web_static")
+    result = local("tar -cvzf {} web_static".format(archive_path))
 
     if result.succeeded:
         return archive_path

@@ -62,13 +62,13 @@ def do_deploy(archive_path):
         run("tar -xzf /tmp/{} -C {}".format(archive_filename, path))
 
         # delete /data/web_static/releasses/web_static_20170315003959
-        run("rm /tmp/{archive_filename}".format(archive_filename))
+        run("rm /tmp/{}".format(archive_filename))
 
         # remove symlink
         run("rm -rf /data/web_static/current")
 
         # create sysnlink
-        run("ln -s {path} /data/web_static/current".format(path))
+        run("ln -s {} /data/web_static/current".format(path))
 
         return True
 

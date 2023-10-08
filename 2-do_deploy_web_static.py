@@ -56,7 +56,7 @@ def do_deploy(archive_path):
 
         run("tar -xzf {} -C {}".format(temp_path, full_path))
 
-        run("rm /tmp/{}".format(temp_path))
+        run("rm {}".format(temp_path))
 
         run("mv -f {}web_static/* {}".format(full_path, full_path))
 

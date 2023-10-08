@@ -54,7 +54,7 @@ def do_deploy(archive_path):
 
         run("mkdir -p {}".format(full_path))
 
-        run("tar -xzf /tmp/{} -C {}".format(temp_path, full_path))
+        run("tar -xzf {} -C {}".format(temp_path, full_path))
 
         run("rm /tmp/{}".format(temp_path))
 

@@ -13,7 +13,7 @@ from os import mkdir
 
 env.hosts = ["54.160.123.234", "54.161.236.101"]
 env.user = "ubuntu"
-env.key_filename = '/root/.ssh/id_rsa'
+# env.key_filename = '~/.ssh/id_rsa'
 
 
 def do_pack():

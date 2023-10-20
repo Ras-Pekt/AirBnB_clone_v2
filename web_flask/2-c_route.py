@@ -34,7 +34,7 @@ def c_route(text):
     displays the c route
     """
     text = text.replace("_", " ")
-    return f"c {escape(text)}"
+    return f"C {escape(text)}"
 
 
 if __name__ == "__main__":

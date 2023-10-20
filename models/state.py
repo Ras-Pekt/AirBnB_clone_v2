@@ -23,7 +23,7 @@ class State(BaseModel, Base):
         obj = storage.all(City)
         city_list = []
         for value in obj.values():
-            if value.state_id == self.id:
+            if isinstance(value, City) and value.state_id == self.id:
                 city_list.append(value)
 
         return city_list

@@ -16,7 +16,6 @@ def cities_by_states_route():
     displays the cities_by_states_list route
     """
     states = storage.all(State)
-    print(f"STATES: {states}")
     return render_template("8-cities_by_states.html", states=states)
 
 

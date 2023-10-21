@@ -16,7 +16,6 @@ def states_route():
     displays the states_list route
     """
     states = storage.all(State)
-    print(f"STATES: {states}")
     return render_template("7-states_list.html", states=states)
 
 
